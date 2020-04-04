@@ -6,6 +6,7 @@
 }
 
 body {
-    background: #424043;
-    color: #e2e2e2; /* #514371   #2e2a2f*/
+    background: #e2e2e2;
+    color: #424043; /* #514371   #2e2a2f #424043*/
+    font-family: 'Ubuntu', sans-serif;
 }

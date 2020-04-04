@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { TestComponent } from './test/test.component';
+import { RedirectorComponent } from './redirector/redirector.component';
 
 
 const routes: Routes = [
   {
     path: ':id',
-    component: TestComponent
+    component: RedirectorComponent
   },
   {
     path: '',
