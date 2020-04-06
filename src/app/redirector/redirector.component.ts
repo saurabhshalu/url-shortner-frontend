@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RedirectorComponent implements OnInit {
 
+  loading: boolean = true;
+
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     this.route.params.subscribe(
       params => {
@@ -22,6 +24,7 @@ export class RedirectorComponent implements OnInit {
         },
         err=>{
           console.log(err)
+          this.loading = false;
         });
       }
     )

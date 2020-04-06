@@ -1,9 +1,9 @@
-<div id="loader">
+<div id="loader" *ngIf="loading">
     <div class="box load"></div>
     <p class="redirect">loading</p>
 </div>
 
-<a [routerLink] = "'/'">
+<a [routerLink] = "'/'" *ngIf="!loading">
     <div class="box notfound tooltip">
         <p class="title">The requested url was not found 😕</p>
         <p class="footer">click to go to homepage</p>

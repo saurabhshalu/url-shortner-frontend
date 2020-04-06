@@ -212,7 +212,7 @@ section {
   .copy-class:hover {
     background: rgb(16, 105, 16);
   }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 550px) {
     @keyframes up-right {
         0% {
             transform: scale(1);
@@ -318,7 +318,10 @@ section {
 
 
     section {
-        padding: 2px;
+        padding: 0px;
+    }
+    .box {
+        border-radius: 0px;
     }
     .urlnbutton {
         flex-direction: column;
@@ -331,7 +334,8 @@ section {
         border-radius: 5px;
     }
     .btn--inside {
-        margin-left: 0px;
+        margin: auto;
         margin-top: 15px;
+        width: 100%;
     }
 }
