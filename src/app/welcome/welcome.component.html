@@ -1,2 +1,32 @@
-<!-- <input type="text" name="txtURL" [(ngModel)]="myurl" placeholder="enter url"/>
-<button (click)="onButtonClickFunction()">Submit</button> -->
+<header>
+    <div class="logo">
+        <a  [routerLink] = "'/'">
+        <img class="logo-img" src="../../assets/icon.svg" alt="logo">
+        </a>
+        <a [routerLink] = "'/'" style="text-decoration: none;">
+        <p>A Minimal URL</p>
+        </a>
+     </div>
+     <nav>
+        <input type="checkbox" id="nav" class="hidden"/>
+        <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
+        <div class="nav-container">
+            <ul>
+            <!-- <li><a [routerLink] = "'/'" onclick="hideNav();" class="anchor">Home</a></li>
+            <li><a [routerLink] = "'/map'" onclick="hideNav();" class="anchor">Map</a></li>
+            <li><a [routerLink] = "'/details'" onclick="hideNav();" class="anchor">Details</a></li> -->
+            <li><a [routerLink] = "'/about'" class="anchor">About</a></li>
+            </ul>
+        </div>
+     </nav>
+</header>
+<section>
+    <div class="box">
+        <div class="urlnbutton">
+            <!-- [ngClass]="status ? 'valid' : 'invalid'"  -->
+			<input id="url" type="url" autocomplete="off" class="form__field"placeholder="enter url to shorten" [(ngModel)]="myurl" (input)="isValidURL()"/>
+			<button id="shortenurl" type="button" class="btn btn--primary btn--inside" (click)="ShortenURL()">MINIFY</button>
+        </div>
+        <p>add # to end of shorten url to see statistics</p>
+    </div>
+</section>

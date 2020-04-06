@@ -10,3 +10,11 @@ body {
     color: #424043; /* #514371   #2e2a2f #424043*/
     font-family: 'Ubuntu', sans-serif;
 }
+
+.box {
+    background: #424043;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+}

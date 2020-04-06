@@ -3,7 +3,9 @@
     <p class="redirect">loading</p>
 </div>
 
-<div class="box notfound tooltip">
-    <p class="title">The requested url was not found 😕</p>
-    <p class="footer">click to go to homepage</p>
-</div>
+<a [routerLink] = "'/'">
+    <div class="box notfound tooltip">
+        <p class="title">The requested url was not found 😕</p>
+        <p class="footer">click to go to homepage</p>
+    </div>
+</a>
