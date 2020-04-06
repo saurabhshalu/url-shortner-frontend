@@ -109,6 +109,20 @@ export class WelcomeComponent implements OnInit {
   }
 
 
+  ShortenURLWithRetry() : Observable<any> {
+    var data = {
+      url: this.myurl
+    }
+    return this.http.post('http://localhost:9000/.netlify/functions/api/save',JSON.stringify(data)).pipe(
+      retry(5),
+      catchError(()=> {
+        return EMPTY;
+      }),
+      shareReplay(),
+    )
+  }
+
+
   ShortenURL() : void {
     if(this.myurl.indexOf('amini.ml')>0) {
       this.myurl = "can't shorten specified url";
@@ -116,19 +130,32 @@ export class WelcomeComponent implements OnInit {
     }
     if(this.status && document.getElementById('shortenurl').innerHTML == 'MINIFY') {  
       document.getElementById('shortenurl').setAttribute('disabled','disabled');
-      var data = {
-        url: this.myurl
-      }
-      this.http.post('http://localhost:9000/.netlify/functions/api/save',JSON.stringify(data)).subscribe(res=>{
+      // var data = {
+      //   url: this.myurl
+      // }
+      // this.http.post('http://localhost:9000/.netlify/functions/api/save',JSON.stringify(data)).subscribe(res=>{
+      //   console.log(res)
+      //   this.myurl = 'https://amini.ml/' + res['code'];
+      //   this.copyTextToClipboard(this.myurl);
+      //   document.getElementById('shortenurl').removeAttribute('disabled');
+      // },
+      // err=>{
+      //   console.log(err)
+      //   document.getElementById('shortenurl').removeAttribute('disabled');
+      // });
+
+      var shorten = this.ShortenURLWithRetry();
+      shorten.subscribe(res=>{
         console.log(res)
         this.myurl = 'https://amini.ml/' + res['code'];
         this.copyTextToClipboard(this.myurl);
         document.getElementById('shortenurl').removeAttribute('disabled');
-      },
-      err=>{
+      },err=> {
         console.log(err)
         document.getElementById('shortenurl').removeAttribute('disabled');
       });
+
+
     }
     else {
       document.getElementById('url').focus();
