@@ -16,6 +16,25 @@ export class WelcomeComponent implements OnInit {
   myurl: string = '';
   status: boolean = false;
 
+
+  about: boolean = false;
+  aboutClick(toggle: string) : void {
+    if(toggle == 'toggle') {
+      if(this.about==false) {
+        document.getElementById('cards').classList.add('cardsnew');
+      }
+      else {
+        document.getElementById('cards').classList.remove('cardsnew');
+      }
+      this.about = !this.about;
+    }
+    else {
+      document.getElementById('cards').classList.remove('cardsnew');
+      this.about = false;
+    }
+    
+  }
+
   public onButtonClickFunction(): void {
     var test = this.greet()
     test.subscribe(res=>{
@@ -67,6 +86,8 @@ export class WelcomeComponent implements OnInit {
 
   removeCopiedClass() {
     document.getElementById('shortenurl').classList.remove('copy-class');
+    
+    document.getElementById('shortenurl').innerHTML = 'MINIFY';
   }
 
   isValidURL() {
@@ -126,6 +147,9 @@ export class WelcomeComponent implements OnInit {
   ShortenURL() : void {
     if(this.myurl.indexOf('amini.ml')>0) {
       this.myurl = "can't shorten specified url";
+      this.status = false;
+      this.invalidClass();
+      this.removeCopiedClass();
       return;
     }
     if(this.status && document.getElementById('shortenurl').innerHTML == 'MINIFY') {  
@@ -161,5 +185,4 @@ export class WelcomeComponent implements OnInit {
       document.getElementById('url').focus();
     }
   }
-
 }

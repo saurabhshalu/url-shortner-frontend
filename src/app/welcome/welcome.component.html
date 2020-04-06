@@ -3,7 +3,7 @@
         <a  [routerLink] = "'/'">
         <img class="logo-img" src="../../assets/icon.svg" alt="logo">
         </a>
-        <a [routerLink] = "'/'" style="text-decoration: none;">
+        <a [routerLink] = "'/'" style="text-decoration: none;" (click)="aboutClick('')">
         <p>A Minimal URL</p>
         </a>
      </div>
@@ -11,12 +11,15 @@
         <input type="checkbox" id="nav" class="hidden"/>
         <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
         <div class="nav-container">
-            <ul>
-            <!-- <li><a [routerLink] = "'/'" onclick="hideNav();" class="anchor">Home</a></li>
-            <li><a [routerLink] = "'/map'" onclick="hideNav();" class="anchor">Map</a></li>
-            <li><a [routerLink] = "'/details'" onclick="hideNav();" class="anchor">Details</a></li> -->
-            <li><a [routerLink] = "'/about'" class="anchor">About</a></li>
-            </ul>
+            <a id="about" [routerLink] = "" (click)="aboutClick('toggle')" class="anchor">About</a>
+            <div align="center" class="cards" id="cards" (click)="aboutClick('toggle')">
+                <section class="card">
+                    <img class="card_img" src="../../assets/profile.jpg" alt="Saurabh" style="width:100%">
+                    <h1 class="cardblack">Saurabh Verma</h1>
+                    <p class="cardtitle">Full Stack Developer</p>
+                    <p><button class="cardbutton" onclick="window.open('https://github.com/saurabhshalu','_blank')">Contact</button></p>
+                </section>
+            </div>
         </div>
      </nav>
 </header>

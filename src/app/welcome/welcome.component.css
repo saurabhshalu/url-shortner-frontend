@@ -44,7 +44,7 @@ nav {
     width: 100%;
 }
 
-nav ul {
+/* nav ul {
     float: right;
 }
 
@@ -71,6 +71,21 @@ nav ul li a:hover {
 
 nav ul li:not(:first-child) {
     margin-left: 25px;
+} */
+
+#about {
+    float: right;
+    outline: none;
+    color: #424043;
+    margin-left: 30px;
+    margin-bottom: 8px;
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+}
+#about:hover {
+    color: #808080;
 }
 
 #nav:checked + .nav-open {
@@ -212,6 +227,70 @@ section {
   .copy-class:hover {
     background: rgb(16, 105, 16);
   }
+
+
+.cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    display: none;
+ }
+
+ .cardsnew {
+     display: flex;
+     background: #424043;
+     position: absolute;
+     top:0;
+     right:0;
+     margin-top: 60px;
+     width: 100%;
+     height: 100vh;
+     z-index: 3;
+ }
+
+ .card {
+   flex: 0 0 300px;
+   min-width: 300px;
+   background: #f2f2f2;
+   border-radius: 7px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   padding: 10px 10px 10px 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   font-family: arial;
+   height: 400px;
+ }
+ .cardtitle {
+     color: grey;
+     font-size: 18px;  
+     margin: 10px;
+ }
+ .cardbutton {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 320px;
+    font-size: 18px;
+    border-radius: 3px;
+} 
+.cardblack {
+    margin-top: 5px;
+}
+.card img {
+    border-radius: 10px 10px 40px 40px;
+    border: 1px solid black;
+}
+
+
+
+
 @media screen and (max-width: 550px) {
     @keyframes up-right {
         0% {
@@ -337,5 +416,11 @@ section {
         margin: auto;
         margin-top: 15px;
         width: 100%;
+    }
+    .cards {
+        display: flex;
+    }
+    #about {
+        display: none;
     }
 }
