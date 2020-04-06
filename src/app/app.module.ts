@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { TestComponent } from './test/test.component';
 import { RedirectorComponent } from './redirector/redirector.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     TestComponent,
-    RedirectorComponent
+    RedirectorComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
