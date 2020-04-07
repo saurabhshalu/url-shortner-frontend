@@ -16,6 +16,8 @@ export class RedirectorComponent implements OnInit {
           code: params.id.replace('$',''),
           type: 'open'
         }
+        console.log(data.code);
+        console.log('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata')
         if(params.id.slice('-1')=='$') {
           window.location.href = '/'
         }
