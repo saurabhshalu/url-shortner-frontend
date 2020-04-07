@@ -18,3 +18,14 @@ body {
     left: 0;
     border-radius: 3px;
 }
+
+
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5 ;
+    width: 100vw;
+    height: 100vh;
+}

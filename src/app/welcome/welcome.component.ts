@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, retry, shareReplay } from 'rxjs/operators';
+
+
+declare var Particles: any;
+
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -10,8 +15,14 @@ import { catchError, retry, shareReplay } from 'rxjs/operators';
 export class WelcomeComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
-
   ngOnInit(): void {
+    
+    window.onload = function() {
+      Particles.init({
+        selector: '#particles-js',
+        maxParticles: 300
+      });
+    };
   }
   myurl: string = '';
   status: boolean = false;
