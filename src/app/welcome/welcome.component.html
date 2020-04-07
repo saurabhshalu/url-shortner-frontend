@@ -1,6 +1,6 @@
 <header>
     <div class="logo">
-        <a  [routerLink] = "'/'">
+        <a  [routerLink] = "'/'" (click)="aboutClick('')">
         <img class="logo-img" src="../../assets/icon.svg" alt="logo">
         </a>
         <a [routerLink] = "'/'" style="text-decoration: none;" (click)="aboutClick('')">
@@ -26,10 +26,13 @@
 <section>
     <div class="box">
         <div class="urlnbutton">
-            <!-- [ngClass]="status ? 'valid' : 'invalid'"  -->
 			<input id="url" type="url" autocomplete="off" class="form__field"placeholder="enter url to shorten" [(ngModel)]="myurl" (input)="isValidURL()"/>
 			<button id="shortenurl" type="button" class="btn btn--primary btn--inside" (click)="ShortenURL()">MINIFY</button>
         </div>
-        <p>add # to end of shorten url to see statistics</p>
+        <p>add $ to end of shorten url to see statistics</p>
+    </div>
+    <div *ngIf="history!=null" class="box history">
+        <h1>{{history['history']['clicks']}}9999</h1>
+        <p>clicks</p>
     </div>
 </section>

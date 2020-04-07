@@ -44,35 +44,6 @@ nav {
     width: 100%;
 }
 
-/* nav ul {
-    float: right;
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    display: inline-block;
-    outline: none;
-    color: #424043;
-     margin-left: 30px;
-     margin-bottom: 8px;
-    font-size: 22px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 0.04em;
-}
-
-nav ul li a:hover {
-    color: #808080;
-    text-decoration: none;
-}
-
-nav ul li:not(:first-child) {
-    margin-left: 25px;
-} */
-
 #about {
     float: right;
     outline: none;
@@ -83,6 +54,7 @@ nav ul li:not(:first-child) {
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 0.04em;
+    cursor: pointer;
 }
 #about:hover {
     color: #808080;
@@ -289,6 +261,20 @@ section {
 }
 
 
+
+.history {
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    border-radius: 0px 0px 5px 5px;
+}
+.history h1 {
+    font-size: 30px;
+    font-weight: 400;
+}
+.history p {
+    font-size: 15px;
+}
 
 
 @media screen and (max-width: 550px) {
