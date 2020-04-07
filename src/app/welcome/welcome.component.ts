@@ -119,7 +119,7 @@ export class WelcomeComponent implements OnInit {
     var data = {
       url: this.myurl
     }
-    return this.http.post('http://localhost:9000/.netlify/functions/api/save',JSON.stringify(data)).pipe(
+    return this.http.post('https://dropurlbackend.netlify.com/.netlify/functions/api/save',JSON.stringify(data)).pipe(
       retry(5),
       catchError(()=> {
         return EMPTY;
@@ -141,15 +141,16 @@ export class WelcomeComponent implements OnInit {
       }
       else {
           var data = {
-            code: this.myurl.slice(this.myurl.lastIndexOf('/')+1,this.myurl.lastIndexOf('$'))
+            code: this.myurl.slice(this.myurl.lastIndexOf('/')+1,this.myurl.lastIndexOf('$')),
+            type: 'history'
           }
-          console.log(data.code);
-          this.http.post('http://localhost:9000/.netlify/functions/api/history',JSON.stringify(data)).subscribe(res=>{
-            console.log(res);
+          //console.log(data.code);
+          this.http.post('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata',JSON.stringify(data)).subscribe(res=>{
+            //console.log(res);
             this.history = res;
           },
           err=>{
-            console.log(err)
+            //console.log(err)
             this.history = null;
           });
       }
@@ -159,12 +160,12 @@ export class WelcomeComponent implements OnInit {
       document.getElementById('shortenurl').setAttribute('disabled','disabled');
       var shorten = this.ShortenURLWithRetry();
       shorten.subscribe(res=>{
-        console.log(res)
+        //console.log(res)
         this.myurl = 'https://amini.ml/' + res['code'];
         this.copyTextToClipboard(this.myurl);
         document.getElementById('shortenurl').removeAttribute('disabled');
       },err=> {
-        console.log(err)
+        //console.log(err)
         document.getElementById('shortenurl').removeAttribute('disabled');
       });
     }

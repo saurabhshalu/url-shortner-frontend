@@ -13,13 +13,14 @@ export class RedirectorComponent implements OnInit {
     this.route.params.subscribe(
       params => {
         var data = {
-          code: params.id.replace('$','')
+          code: params.id.replace('$',''),
+          type: 'open'
         }
         if(params.id.slice('-1')=='$') {
           window.location.href = '/'
         }
         else {
-          this.http.post('http://localhost:9000/.netlify/functions/api/get',JSON.stringify(data)).subscribe(res=>{
+          this.http.post('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata',JSON.stringify(data)).subscribe(res=>{
             console.log(res);
             window.location.href = res['url'];
           },
