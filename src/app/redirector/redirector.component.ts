@@ -27,6 +27,7 @@ export class RedirectorComponent implements OnInit {
           err=>{
             console.log(err)
             this.loading = false;
+            console.log('why this?? ;(')
           });
         }
       }
