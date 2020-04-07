@@ -409,4 +409,9 @@ section {
     #about {
         display: none;
     }
+    .history {
+        border-radius: 0px 0px 5px 5px;
+        width: 150px;
+        height: 80px;
+    }
 }
