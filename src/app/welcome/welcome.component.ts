@@ -140,6 +140,8 @@ export class WelcomeComponent implements OnInit {
         return;
       }
       else {
+        
+          document.getElementById('waiting').style.display = "inline-block";
           var data = {
             code: this.myurl.slice(this.myurl.lastIndexOf('/')+1,this.myurl.lastIndexOf('$')),
             type: 'history'
@@ -148,15 +150,19 @@ export class WelcomeComponent implements OnInit {
           this.http.post('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata',JSON.stringify(data)).subscribe(res=>{
             //console.log(res);
             this.history = res;
+            
+            document.getElementById('waiting').style.display = "none";
           },
           err=>{
             //console.log(err)
             this.history = null;
+            document.getElementById('waiting').style.display = "none";
           });
       }
       return;
     }
     if(this.status && document.getElementById('shortenurl').innerHTML == 'MINIFY') {  
+      document.getElementById('waiting').style.display = "inline-block";
       document.getElementById('shortenurl').setAttribute('disabled','disabled');
       var shorten = this.ShortenURLWithRetry();
       shorten.subscribe(res=>{
@@ -164,9 +170,11 @@ export class WelcomeComponent implements OnInit {
         this.myurl = 'https://amini.ml/' + res['code'];
         this.copyTextToClipboard(this.myurl);
         document.getElementById('shortenurl').removeAttribute('disabled');
+        document.getElementById('waiting').style.display = "none";
       },err=> {
         //console.log(err)
         document.getElementById('shortenurl').removeAttribute('disabled');
+        document.getElementById('waiting').style.display = "none";
       });
     }
     else {

@@ -16,20 +16,20 @@ export class RedirectorComponent implements OnInit {
           code: params.id.replace('$',''),
           type: 'open'
         }
-        console.log(data.code);
-        console.log('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata')
+        //console.log(data.code);
+        //console.log('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata')
         if(params.id.slice('-1')=='$') {
           window.location.href = '/'
         }
         else {
           this.http.post('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata',JSON.stringify(data)).subscribe(res=>{
-            console.log(res);
+            //console.log(res);
             window.location.href = res['url'];
           },
           err=>{
-            console.log(err)
+            //console.log(err)
             this.loading = false;
-            console.log('why this?? ;(')
+            //console.log('why this?? ;(')
           });
         }
       }
