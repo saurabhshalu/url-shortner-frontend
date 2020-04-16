@@ -119,7 +119,7 @@ export class WelcomeComponent implements OnInit {
     var data = {
       url: this.myurl
     }
-    return this.http.post('https://dropurlbackend.netlify.com/.netlify/functions/api/save',JSON.stringify(data)).pipe(
+    return this.http.post('https://dropurlbackend.netlify.app/.netlify/functions/api/save',JSON.stringify(data)).pipe(
       retry(5),
       catchError(()=> {
         return EMPTY;
@@ -147,7 +147,7 @@ export class WelcomeComponent implements OnInit {
             type: 'history'
           }
           //console.log(data.code);
-          this.http.post('https://dropurlbackend.netlify.com/.netlify/functions/api/getdata',JSON.stringify(data)).subscribe(res=>{
+          this.http.post('https://dropurlbackend.netlify.app/.netlify/functions/api/getdata',JSON.stringify(data)).subscribe(res=>{
             //console.log(res);
             this.history = res;
             
