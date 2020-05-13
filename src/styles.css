@@ -6,13 +6,13 @@
 }
 
 body {
-    background: #e2e2e2;
+    background: #303A52;
     color: #424043; /* #514371   #2e2a2f #424043*/
     font-family: 'Ubuntu', sans-serif;
 }
 
 .box {
-    background: #424043;
+    background: #455068;
     position: absolute;
     top: 0;
     left: 0;

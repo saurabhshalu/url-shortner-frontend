@@ -46,7 +46,7 @@ header {
     display: -ms-flexbox;
     display: flex;
     height: 60px;
-    background: #F8F8F9;
+    background: #303A52;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -65,7 +65,7 @@ header .logo {
 
 
 .logo p {
-    color: #424043;
+    color: #FFF;
     margin-left: 10px;
     margin-top: 5px;
     font-size: 22px;
@@ -87,7 +87,7 @@ nav {
 #about {
     float: right;
     outline: none;
-    color: #424043;
+    color: #FFF;
     margin-left: 30px;
     margin-bottom: 8px;
     font-size: 22px;
@@ -97,7 +97,7 @@ nav {
     cursor: pointer;
 }
 #about:hover {
-    color: #808080;
+    color: rgb(185, 164, 164);
 }
 
 #nav:checked + .nav-open {
@@ -252,7 +252,7 @@ section {
 
  .cardsnew {
      display: flex;
-     background: #424043;
+     background: #303A52;
      position: absolute;
      top:0;
      right:0;
@@ -339,7 +339,7 @@ section {
         height: 100%;
         width: 100vw;
         z-index: -1;
-        background: #424043;
+        background: #303A52;
         opacity: 0;
         visibility: hidden;
         -webkit-transition: all 0.2s ease;
@@ -405,7 +405,7 @@ section {
         display: block;
         width: 20px;
         height: 2px;
-        background: #1f2227;
+        background: #FFF;
         border-radius: 2px;
         margin-left: 14px;
     }
