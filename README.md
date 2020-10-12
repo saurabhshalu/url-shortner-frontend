@@ -4,7 +4,6 @@
 
 Minimal URL is a very simple URL shortner serivce which let's you convert long URL into smaller ones which are easy to remember and use in presentaion 
 
-##### NOTE: URL will automatically be deleted from Database after 24 hours of inactivity
 
 ## How to contribute
 
