@@ -1,27 +1,30 @@
-# UrlShortnerFrontend
-https://amini.ml
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+# A Minimal URL
 
-## Development server
+![Minimal URL Homepage](./assets/saurabh.png "Homepage")
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Minimal URL is a very simple URL shortner serivce which let's you convert long URL into smaller ones which are easy to remember and use in presentaion 
 
-## Code scaffolding
+##### NOTE: URL will automatically be deleted from Database after 24 hours of inactivity
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to contribute
 
-## Build
+* (Optional but advisable) Create an issue if you find any bug or want to improve something
+* Fork the repo
+* Clone the repo to your local machine
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ 
+```
+git clone http://github.com/<YOUR-USERNAME>/url-shortner-frontend
+```
 
-## Running unit tests
+* Install node_modules
+```
+npm install
+```
+* Run the project
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+ng serve -o
+```
+* Make meaningful changes and write a understandable commit message
+* Push the changes and create a pull request
