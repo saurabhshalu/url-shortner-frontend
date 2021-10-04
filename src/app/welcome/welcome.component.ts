@@ -24,10 +24,24 @@ export class WelcomeComponent implements OnInit {
       });
     };
   }
-  myurl: string = '';
+  myurl: string = "";
   status: boolean = false;
   about: boolean = false;
+  mode: boolean = false;
+  mytext: string = "🌞";
   history: any = null;
+
+  modeClick(): void {
+    if (this.mode) {
+      this.mytext = "🌞";
+      document.getElementsByTagName("body")[0].style.backgroundColor = "#303A52";
+    } else {
+      this.mytext = "🌙";
+      document.getElementsByTagName("body")[0].style.backgroundColor = "white";
+    }
+
+    this.mode = !this.mode;
+  }
 
   aboutClick(toggle: string) : void {
     if(toggle == 'toggle') {

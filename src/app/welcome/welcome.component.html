@@ -11,6 +11,7 @@
         <input type="checkbox" id="nav" class="hidden"/>
         <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
         <div class="nav-container">
+            <span style="cursor: pointer; font-size: 22px" (click)="modeClick()">{{mytext}}</span>
             <a id="about" [routerLink] = "" (click)="aboutClick('toggle')" class="anchor">About</a>
             <div align="center" class="cards" id="cards" (click)="aboutClick('toggle')">
                 <section class="card">
