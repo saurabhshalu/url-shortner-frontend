@@ -1,6 +1,6 @@
 # A Minimal URL
 
-## Live Demo [amini.ml](https://dropurl.netlify.app/)
+## Live Demo [https://dropurl.netlify.app/](https://dropurl.netlify.app/)
 
 The backend code is present at : [urlshortner/backend](https://github.com/saurabhshalu/url-shortner-backend)
 
