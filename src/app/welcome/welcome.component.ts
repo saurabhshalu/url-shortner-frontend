@@ -92,7 +92,7 @@ export class WelcomeComponent implements OnInit {
       this.removeCopiedClass();
       return;
     }
-    if(this.myurl.slice(-1)=='$' && this.myurl.indexOf('amini.ml')>0) {
+    if(this.myurl.slice(-1)=='$' && this.myurl.indexOf('dropurl.netlify.app')>0) {
       this.addHistoryClass();
     }
     var regex = new RegExp("^((https{0,1}|ftp|rtsp|mms){0,1}://){1}(([0-9a-z_!~\\*'\\(\\)\\.&=\\+\\$%\\-]{1,}:\\ ){0,1}[0-9a-z_!~\\*'\\(\\)\\.&=\\+\\$%\\-]{1,}@){0,1}(([0-9]{1,3}\\.){3,3}[0-9]{1,3}|([0-9a-z_!~\\*'\\(\\)\\-]{1,}\\.){0,}([0-9a-z][0-9a-z\\-]{0,61}){0,1}[0-9a-z]\\.[a-z]{2,18}|localhost)(:[0-9]{1,4}){0,1}((/{0,1})|(/[0-9a-z_!~\\*'\\(\\)\\.;\\?:@&=\\+\\$,%#\\-]{1,}){1,}/{0,1})$","gi");
@@ -144,7 +144,7 @@ export class WelcomeComponent implements OnInit {
 
 
   ShortenURL() : void {
-    if(this.myurl.indexOf('amini.ml')>0) {
+    if(this.myurl.indexOf('dropurl.netlify.app')>0) {
 
       if(this.myurl.slice(-1)!='$') {
         this.myurl = "can't shorten specified url";
@@ -160,15 +160,12 @@ export class WelcomeComponent implements OnInit {
             code: this.myurl.slice(this.myurl.lastIndexOf('/')+1,this.myurl.lastIndexOf('$')),
             type: 'history'
           }
-          //console.log(data.code);
           this.http.post('https://dropurlbackend.netlify.app/.netlify/functions/api/getdata',JSON.stringify(data)).subscribe(res=>{
-            //console.log(res);
             this.history = res;
             
             document.getElementById('waiting').style.display = "none";
           },
           err=>{
-            //console.log(err)
             this.history = null;
             document.getElementById('waiting').style.display = "none";
           });
@@ -180,13 +177,11 @@ export class WelcomeComponent implements OnInit {
       document.getElementById('shortenurl').setAttribute('disabled','disabled');
       var shorten = this.ShortenURLWithRetry();
       shorten.subscribe(res=>{
-        //console.log(res)
-        this.myurl = 'https://amini.ml/' + res['code'];
+        this.myurl = 'https://dropurl.netlify.app/' + res['code'];
         this.copyTextToClipboard(this.myurl);
         document.getElementById('shortenurl').removeAttribute('disabled');
         document.getElementById('waiting').style.display = "none";
       },err=> {
-        //console.log(err)
         document.getElementById('shortenurl').removeAttribute('disabled');
         document.getElementById('waiting').style.display = "none";
       });
