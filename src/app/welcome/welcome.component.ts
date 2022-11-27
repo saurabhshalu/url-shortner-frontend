@@ -92,7 +92,7 @@ export class WelcomeComponent implements OnInit {
       this.removeCopiedClass();
       return;
     }
-    if(this.myurl.slice(-1)=='$' && this.myurl.indexOf('dropurl.netlify.app')>0) {
+    if(this.myurl.slice(-1)=='$' && this.myurl.indexOf(window.location.host)>0) {
       this.addHistoryClass();
     }
     var regex = new RegExp("^((https{0,1}|ftp|rtsp|mms){0,1}://){1}(([0-9a-z_!~\\*'\\(\\)\\.&=\\+\\$%\\-]{1,}:\\ ){0,1}[0-9a-z_!~\\*'\\(\\)\\.&=\\+\\$%\\-]{1,}@){0,1}(([0-9]{1,3}\\.){3,3}[0-9]{1,3}|([0-9a-z_!~\\*'\\(\\)\\-]{1,}\\.){0,}([0-9a-z][0-9a-z\\-]{0,61}){0,1}[0-9a-z]\\.[a-z]{2,18}|localhost)(:[0-9]{1,4}){0,1}((/{0,1})|(/[0-9a-z_!~\\*'\\(\\)\\.;\\?:@&=\\+\\$,%#\\-]{1,}){1,}/{0,1})$","gi");
@@ -144,7 +144,7 @@ export class WelcomeComponent implements OnInit {
 
 
   ShortenURL() : void {
-    if(this.myurl.indexOf('dropurl.netlify.app')>0) {
+    if(this.myurl.indexOf(window.location.host)>0) {
 
       if(this.myurl.slice(-1)!='$') {
         this.myurl = "can't shorten specified url";
@@ -177,7 +177,7 @@ export class WelcomeComponent implements OnInit {
       document.getElementById('shortenurl').setAttribute('disabled','disabled');
       var shorten = this.ShortenURLWithRetry();
       shorten.subscribe(res=>{
-        this.myurl = 'https://dropurl.netlify.app/' + res['code'];
+        this.myurl = 'https://' + window.location.host + '/' + res['code'];
         this.copyTextToClipboard(this.myurl);
         document.getElementById('shortenurl').removeAttribute('disabled');
         document.getElementById('waiting').style.display = "none";
